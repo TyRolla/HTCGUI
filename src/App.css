@@ -1,38 +1,86 @@
-.App {
+.navbg {
+  background-image: "./images/htlogo.svg";
+}
+
+.htlogo {
+  padding-top: 10px;
+  padding-left: 10px;
+  height: 15%;
+  width: 15%;
+  text-align: left;
+}
+
+.header-flex {
+  padding: 20px 10px 10px 10px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-flex > * {
+  border: 1px solid black;
+}
+
+.usericon {
+  height: 40px;
+  width: 40px;
+}
+
+.county-background {
+  padding: 20px 200px 40px 200px;
+}
+.county-header {
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px 70px 0px 70px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.county-component {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.search-component > * {
+  border: 1px solid black;
+  display: flex;
+}
+
+.search-block {
+  width: 100%;
+  height: 56px;
+  border-radius: 4px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 0.3s all;
+}
+.search-block:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.caf-search-component {
+  border: 1px solid red;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.caf-search-component > div > input {
+  margin-top: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-component {
+  text-align: center;
+  padding-top: 10%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-component form {
+  margin: 0 auto;
+  max-width: 320px;
+  text-align: center;
 }
