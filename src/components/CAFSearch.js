@@ -1,6 +1,15 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
+import SearchIcon from "@material-ui/icons/Search";
+import Icon from "@material-ui/core/Icon";
+import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
 
 class CAFSearch extends React.Component {
+  countyRef = React.createRef();
   tmkRef = React.createRef();
   addressRef = React.createRef();
   zipRef = React.createRef();
@@ -10,6 +19,7 @@ class CAFSearch extends React.Component {
   createQuery = event => {
     event.preventDefault();
     const query = {
+      county: this.countyRef.current.value,
       tmk: parseInt(this.tmkRef.current.value),
       address: this.addressRef.current.value,
       zip: parseInt(this.zipRef.current.value),
@@ -20,42 +30,79 @@ class CAFSearch extends React.Component {
     event.currentTarget.reset();
   };
 
+  handleChange = event => {
+    this.setState({ county: event.target.value });
+  };
+
   render() {
     return (
       <div>
         <form className="caf-search-component" onSubmit={this.createQuery}>
           <div>
-            <input name="tmk" ref={this.tmkRef} type="text" placeholder="TMK" />
+            <FormControl variant="outlined" size="small">
+              <InputLabel>County</InputLabel>
+              <Select inputRef={this.countyRef}>
+                <MenuItem value="Oahu">Oahu</MenuItem>
+                <MenuItem value="Maui">Maui</MenuItem>
+                <MenuItem value="Hawaii">Hawaii</MenuItem>
+                <MenuItem value="Kauai">Kauai</MenuItem>
+              </Select>
+            </FormControl>
           </div>
           <div>
-            <input
+            <TextField
+              name="tmk"
+              inputRef={this.tmkRef}
+              label="TMK"
+              variant="outlined"
+              size="small"
+            />
+          </div>
+          <div>
+            <TextField
               name="address"
-              ref={this.addressRef}
-              type="text"
-              placeholder="Address"
+              inputRef={this.addressRef}
+              label="Address"
+              variant="outlined"
+              size="small"
             />
           </div>
           <div>
-            <input name="zip" ref={this.zipRef} type="text" placeholder="ZIP" />
+            <TextField
+              name="zip"
+              inputRef={this.zipRef}
+              label="ZIP Code"
+              variant="outlined"
+              size="small"
+            />
           </div>
           <div>
-            <input
+            <TextField
               name="taxclass"
-              ref={this.taxclassRef}
-              type="text"
-              placeholder="Tax Class"
+              inputRef={this.taxclassRef}
+              label="Tax Class"
+              variant="outlined"
+              size="small"
             />
           </div>
           <div>
-            <input
+            <TextField
               name="census"
-              ref={this.censusRef}
-              type="text"
-              placeholder="Census Block"
+              inputRef={this.censusRef}
+              label="Census"
+              variant="outlined"
+              size="small"
             />
           </div>
           <div style={{ textAlign: "center", marginTop: "10px" }}>
-            <button type="submit">Search!</button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              endIcon={<SearchIcon />}
+            >
+              Search
+            </Button>
           </div>
         </form>
       </div>
