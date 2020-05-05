@@ -1,25 +1,32 @@
-.navbg {
-  background-image: "./images/htlogo.svg";
+body {
+  background-image: url("./images/htback.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .htlogo {
   padding-top: 10px;
-  padding-left: 10px;
+  padding-left: 80px;
   height: 15%;
   width: 15%;
   text-align: left;
 }
 
+.caflogo {
+  padding-top: 10px;
+  margin-right: 100px;
+  height: 5%;
+  width: 5%;
+  text-align: right;
+}
 .header-flex {
   padding: 20px 10px 10px 10px;
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.header-flex > * {
-  border: 1px solid black;
+  background-image: url("./images/greenback.jpg");
+  background-size: cover;
+  border: 3px groove rgb(7, 104, 36);
 }
 
 .usericon {
@@ -32,14 +39,12 @@
 }
 .county-header {
   text-align: center;
-  border: 1px solid black;
   padding: 10px 70px 0px 70px;
   width: 50%;
   margin: 0 auto;
 }
 
 .county-component {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,7 +54,6 @@
 }
 
 .search-component > * {
-  border: 1px solid black;
   display: flex;
 }
 
@@ -67,7 +71,6 @@
 }
 
 .caf-search-component {
-  border: 1px solid red;
   text-align: center;
 }
 
