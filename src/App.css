@@ -98,3 +98,14 @@ body {
   color: rgb(248, 220, 128);
   border: 2px solid rgb(238, 213, 102);
 }
+
+#normal {
+  width: 14%;
+}
+
+.option-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10% 25% 10% 25%;
+}

@@ -7,6 +7,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
+import GridOnIcon from "@material-ui/icons/GridOn";
+import history from "./../history";
 
 class CAFSearch extends React.Component {
   countyRef = React.createRef();
@@ -37,9 +39,13 @@ class CAFSearch extends React.Component {
   render() {
     return (
       <div>
-        <form className="caf-search-component" onSubmit={this.createQuery}>
+        <form
+          className="caf-search-component"
+          onSubmit={this.createQuery}
+          style={{ marginTop: "4%" }}
+        >
           <div>
-            <FormControl variant="outlined" size="small">
+            <FormControl variant="outlined" size="small" id="normal">
               <InputLabel>County</InputLabel>
               <Select inputRef={this.countyRef}>
                 <MenuItem value="Oahu">Oahu</MenuItem>

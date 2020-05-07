@@ -6,7 +6,7 @@ class Homepage extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const userID = this.myInput.current.value;
-    this.props.history.push(`/caf/${userID}`);
+    this.props.history.push(`/Option/${userID}`);
   };
 
   render() {
