@@ -109,3 +109,31 @@ body {
   justify-content: space-between;
   margin: 10% 25% 10% 25%;
 }
+
+.details {
+  text-align: left;
+}
+
+.books {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book {
+  background: #fff;
+  position: relative;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  color: #333;
+  flex-basis: width;
+  background-color: rgb(255, 214, 153);
+  border: 2px solid rgb(153, 148, 148);
+}
+
+.book h2 {
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}

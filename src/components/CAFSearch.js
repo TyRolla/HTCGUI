@@ -9,31 +9,47 @@ import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import GridOnIcon from "@material-ui/icons/GridOn";
 import history from "./../history";
+import ParcelTable from "./ParcelTable";
+import axios from "axios";
 
 class CAFSearch extends React.Component {
+  parcelData = React.createRef();
+  cafID = React.createRef();
   countyRef = React.createRef();
-  tmkRef = React.createRef();
-  addressRef = React.createRef();
-  zipRef = React.createRef();
-  taxclassRef = React.createRef();
-  censusRef = React.createRef();
-
-  createQuery = event => {
-    event.preventDefault();
+  parcelRef = React.createRef();
+  parcelArray = [];
+  parcelNum = React.createRef();
+  getRequest() {
+    const countyURL = this.countyRef.current.value;
+    const parcelID = parseInt(this.cafID.current.value);
+    axios
+      .get("http://10.100.98.144/node/caf/" + countyURL + "/" + parcelID)
+      .then(api => {
+        console.log("Fetched Data", api);
+        this.parcelRef = api.data;
+      });
+    this.parcelNum = parcelID;
+    //console.log(this.parcelRef);
+  }
+  createQuery() {
+    const parcelState = this.parcelRef;
     const query = {
       county: this.countyRef.current.value,
-      tmk: parseInt(this.tmkRef.current.value),
-      address: this.addressRef.current.value,
-      zip: parseInt(this.zipRef.current.value),
-      taxclass: this.taxclassRef.current.value,
-      census: this.censusRef.current.value
+      ID: parseInt(this.cafID.current.value),
+      parcels: [parcelState]
     };
+    this.parcelArray.push(parcelState);
     this.props.addQuery(query);
-    event.currentTarget.reset();
-  };
+  }
 
   handleChange = event => {
     this.setState({ county: event.target.value });
+  };
+
+  twoFunction = event => {
+    event.preventDefault();
+    this.createQuery();
+    this.getRequest();
   };
 
   render() {
@@ -41,14 +57,17 @@ class CAFSearch extends React.Component {
       <div>
         <form
           className="caf-search-component"
-          onSubmit={this.createQuery}
+          onSubmit={this.twoFunction}
           style={{ marginTop: "4%" }}
         >
+          <div>
+            <h3>Please Fill Both Search Fields Below</h3>
+          </div>
           <div>
             <FormControl variant="outlined" size="small" id="normal">
               <InputLabel>County</InputLabel>
               <Select inputRef={this.countyRef}>
-                <MenuItem value="Oahu">Oahu</MenuItem>
+                <MenuItem value="Honolulu">Honolulu</MenuItem>
                 <MenuItem value="Maui">Maui</MenuItem>
                 <MenuItem value="Hawaii">Hawaii</MenuItem>
                 <MenuItem value="Kauai">Kauai</MenuItem>
@@ -57,49 +76,14 @@ class CAFSearch extends React.Component {
           </div>
           <div>
             <TextField
-              name="tmk"
-              inputRef={this.tmkRef}
-              label="TMK"
+              name="cafID"
+              inputRef={this.cafID}
+              label="Parcel ID"
               variant="outlined"
               size="small"
             />
           </div>
-          <div>
-            <TextField
-              name="address"
-              inputRef={this.addressRef}
-              label="Address"
-              variant="outlined"
-              size="small"
-            />
-          </div>
-          <div>
-            <TextField
-              name="zip"
-              inputRef={this.zipRef}
-              label="ZIP Code"
-              variant="outlined"
-              size="small"
-            />
-          </div>
-          <div>
-            <TextField
-              name="taxclass"
-              inputRef={this.taxclassRef}
-              label="Tax Class"
-              variant="outlined"
-              size="small"
-            />
-          </div>
-          <div>
-            <TextField
-              name="census"
-              inputRef={this.censusRef}
-              label="Census"
-              variant="outlined"
-              size="small"
-            />
-          </div>
+
           <div style={{ textAlign: "center", marginTop: "10px" }}>
             <Button
               type="submit"
@@ -111,6 +95,10 @@ class CAFSearch extends React.Component {
             </Button>
           </div>
         </form>
+        <ParcelTable
+          parcelState={this.parcelArray}
+          parcelID={this.cafID.value}
+        />
       </div>
     );
   }
