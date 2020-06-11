@@ -13,7 +13,7 @@ class ParcelTable extends React.Component {
               console.log(parcel);
               return (
                 <div className="book" key={index}>
-                  <h2>Parcel ID: {this.props.parcelID}</h2>
+                  <h2>Parcel ID: {parcel.parcels.recordset[0].TMK}</h2>
                   <div className="details">
                     <p>
                       <b>ID:</b> {parcel.parcels.recordset[0].ID}
