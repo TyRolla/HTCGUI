@@ -19,10 +19,10 @@ class CAFSearch extends React.Component {
   parcelRef = React.createRef();
   parcelArray = [];
   parcelNum = React.createRef();
-  getRequest() {
+  async getRequest() {
     const countyURL = this.countyRef.current.value;
     const parcelID = parseInt(this.cafID.current.value);
-    axios
+    await axios
       .get("http://10.100.98.144/node/caf/" + countyURL + "/" + parcelID)
       .then(api => {
         console.log("Fetched Data", api);
@@ -31,7 +31,7 @@ class CAFSearch extends React.Component {
     this.parcelNum = parcelID;
     //console.log(this.parcelRef);
   }
-  createQuery() {
+  async createQuery() {
     const parcelState = this.parcelRef;
     const query = {
       county: this.countyRef.current.value,
@@ -46,10 +46,10 @@ class CAFSearch extends React.Component {
     this.setState({ county: event.target.value });
   };
 
-  twoFunction = event => {
+  twoFunction = async event => {
     event.preventDefault();
-    this.createQuery();
-    this.getRequest();
+    await this.getRequest();
+    await this.createQuery();
   };
 
   render() {
@@ -97,7 +97,6 @@ class CAFSearch extends React.Component {
         </form>
         <ParcelTable
           parcelState={this.parcelArray}
-          parcelID={this.cafID.value}
         />
       </div>
     );
