@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import MultiSearch from "./MultiSearch";
 import history from "./../history";
 import Option from "./Option";
+import PolygonTool from "./PolygonTool";
 
 class Routes extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends React.Component {
           <Route path="/Option" component={Option} />
           <Route path="/Singlesearch" component={App} />
           <Route path="/Multisearch" component={MultiSearch} />
+          <Route path="/PolygonTool" component={PolygonTool} />
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -12,6 +12,17 @@ class Option extends React.Component {
         <h2 style={{ textAlign: "center" }}>Please Select an Option</h2>
         <div className="option-selection">
           <Button
+            style={{ marginRight: "20px" }}
+            size="large"
+            color="primary"
+            onClick={() => history.push(`/PolygonTool`)}
+            type="button"
+            variant="contained"
+            startIcon={<GridOnIcon />}
+          >
+            Polygon Tool
+          </Button>
+          <Button
             size="large"
             color="primary"
             onClick={() => history.push(`/Multisearch`)}
@@ -24,6 +35,7 @@ class Option extends React.Component {
           <Button
             id="divider"
             size="large"
+            style={{ marginLeft: "20px" }}
             color="primary"
             onClick={() => history.push(`/Singlesearch`)}
             type="button"

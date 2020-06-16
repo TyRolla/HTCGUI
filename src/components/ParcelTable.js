@@ -9,7 +9,7 @@ class ParcelTable extends React.Component {
       <div className="books">
         {this.props.parcelState &&
           this.props.parcelState.map((parcel, index) => {
-            if (index != 0) {
+            if (index !== 0) {
               console.log(parcel);
               return (
                 <div className="book" key={index}>
