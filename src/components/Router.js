@@ -3,7 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Homepage from "./Homepage";
 import App from "./App";
 import NotFound from "./NotFound";
-import MultiSearch from "./MultiSearch";
+import { SheetJSApp } from "./MultiSearch";
 import history from "./../history";
 import Option from "./Option";
 import PolygonTool from "./PolygonTool";
@@ -16,7 +16,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={Homepage} />
           <Route path="/Option" component={Option} />
           <Route path="/Singlesearch" component={App} />
-          <Route path="/Multisearch" component={MultiSearch} />
+          <Route path="/Multisearch" component={SheetJSApp} />
           <Route path="/PolygonTool" component={PolygonTool} />
           <Route component={NotFound} />
         </Switch>
