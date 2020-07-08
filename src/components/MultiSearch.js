@@ -1,6 +1,8 @@
 import React from "react";
 import XLSX from "xlsx";
 import NavBar from "./NavBar";
+import MultiSearchButton from "./MultiSearchButton";
+import { booleanLiteral } from "@babel/types";
 /* xlsx.js (C) 2013-present  SheetJS -- http://sheetjs.com */
 /* Notes:
    - usage: `ReactDOM.render( <SheetJSApp />, document.getElementById('app') );`
@@ -13,11 +15,17 @@ export class SheetJSApp extends React.Component {
     super(props);
     this.state = {
       data: [] /* Array of Arrays e.g. [["a","b"],[1,2]] */,
-      cols: [] /* Array of column objects e.g. { name: "C", K: 2 } */
+      cols: [] /* Array of column objects e.g. { name: "C", K: 2 } */,
+      launch: false
     };
     this.handleFile = this.handleFile.bind(this);
     this.exportFile = this.exportFile.bind(this);
   }
+  _launch = bool => {
+    this.setState({
+      launch: bool
+    });
+  };
   handleFile(file /*:File*/) {
     /* Boilerplate to set up FileReader */
     const reader = new FileReader();
@@ -62,6 +70,14 @@ export class SheetJSApp extends React.Component {
               </div>
             </div>
           </DragDropFile>
+        </div>
+        <div className="multicenter">
+          <button onClick={this._launch.bind(null, true)}>Search</button>
+          {this.state.launch && (
+            <div>
+              <MultiSearchButton data={this.state.data} />
+            </div>
+          )}
         </div>
       </div>
     );
