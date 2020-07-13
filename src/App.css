@@ -292,3 +292,28 @@ body {
   float: left;
   width: 100%;
 }
+
+.login-bg {
+  height: 100%;
+  width: 100%;
+  filter: blur(4px);
+}
+
+.login-component {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid #967515;
+  border-radius: 25px;
+  width: 33%;
+  height: 33%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 22px;
+}
+.login-component form {
+  margin: 0 auto;
+  max-width: 320px;
+  text-align: center;
+}
