@@ -3,7 +3,7 @@ HTC GUI Guide
 GitHub Link to Build: https://github.com/TyRolla/HTCGUI
 Web Application created by: Ty Uehara (ty.uehara@hawaiiantel.com)
 
-Libraries and Frameworks Used w/ version number
+Libraries and Frameworks Used
 Axios (GET/POST Request)
 Material UI (CSS)
 Node.js
