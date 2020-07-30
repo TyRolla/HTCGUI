@@ -4,13 +4,22 @@ GitHub Link to Build: https://github.com/TyRolla/HTCGUI
 Web Application created by: Ty Uehara (ty.uehara@hawaiiantel.com)
 
 Libraries and Frameworks Used
-Axios (GET/POST Request)
-Material UI (CSS)
-Node.js
-npm
-React.js (Web Dev Framework)
-SheetJSApp (xlsx)
-
+     @material-ui/core": "^4.9.12",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.9.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "typeface-roboto": "0.0.75",
+    "xlsx": "^0.16.2"
+    
  About HTC GUI:
 This web application was created to allow planners instant access to all parcel data for the State of Hawaii. All data used is stored on a SQL server that is managed by the data team (see Kalani for details of who).  Please continue to build and maintain the HTC GUI and other internal web applications made for the planning/engineering department. The data the HTC GUI uses will directly help analytics determine if the planning/engineering department are building optimally. 
 
